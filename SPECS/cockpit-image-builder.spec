@@ -1,5 +1,5 @@
 Name:           cockpit-image-builder
-Version:        60
+Version:        75
 Release:        1%{?dist}
 Summary:        Image builder plugin for Cockpit
 
@@ -46,6 +46,30 @@ appstream-util validate-relax --nonet %{buildroot}/%{_datadir}/metainfo/*
 %{_datadir}/metainfo/*
 
 %changelog
+* Thu Aug 21 2025 imagebuilder-bot <imagebuilder-bots+imagebuilder-bot@redhat.com> - 75-1
+- New upstream release
+
+* Wed Aug 20 2025 imagebuilder-bot <imagebuilder-bots+imagebuilder-bot@redhat.com> - 74-1
+- New upstream release
+
+* Wed Aug 06 2025 imagebuilder-bot <imagebuilder-bots+imagebuilder-bot@redhat.com> - 73-1
+- New upstream release
+
+* Wed Jul 23 2025 imagebuilder-bot <imagebuilder-bots+imagebuilder-bot@redhat.com> - 72-1
+- New upstream release
+
+* Sat Jul 12 2025 imagebuilder-bot <imagebuilder-bots+imagebuilder-bot@redhat.com> - 71-1
+- New upstream release
+
+* Wed Jun 11 2025 imagebuilder-bot <imagebuilder-bots+imagebuilder-bot@redhat.com> - 69-1
+- New upstream release
+
+* Thu Jun 05 2025 imagebuilder-bot <imagebuilder-bots+imagebuilder-bot@redhat.com> - 68-1
+- New upstream release
+
+* Wed Apr 16 2025 imagebuilder-bot <imagebuilder-bots+imagebuilder-bot@redhat.com> - 65-1
+- New upstream release
+
 * Wed Feb 12 2025 imagebuilder-bot <imagebuilder-bots+imagebuilder-bot@redhat.com> - 60-1
 - New upstream release
 
