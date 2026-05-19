@@ -1,5 +1,5 @@
 Name:           cockpit-image-builder
-Version:        75
+Version:        94
 Release:        1%{?dist}
 Summary:        Image builder plugin for Cockpit
 
@@ -14,11 +14,13 @@ BuildArch:      noarch
 BuildRequires:  gettext
 BuildRequires:  libappstream-glib
 BuildRequires:  make
-BuildRequires:  nodejs
+BuildRequires:  /usr/bin/node
 
 Requires:       cockpit
 Requires:       cockpit-files
 Requires:       osbuild-composer >= 131
+
+Recommends:     cockpit-machines
 
 %description
 The image-builder-frontend generates custom images suitable for
@@ -46,6 +48,36 @@ appstream-util validate-relax --nonet %{buildroot}/%{_datadir}/metainfo/*
 %{_datadir}/metainfo/*
 
 %changelog
+* Mon Feb 23 2026 imagebuilder-bot <imagebuilder-bots+imagebuilder-bot@redhat.com> - 94-1
+- New upstream release
+
+* Tue Feb 17 2026 imagebuilder-bot <imagebuilder-bots+imagebuilder-bot@redhat.com> - 93-1
+- New upstream release
+
+* Fri Feb 13 2026 imagebuilder-bot <imagebuilder-bots+imagebuilder-bot@redhat.com> - 92-1
+- New upstream release
+
+* Wed Dec 10 2025 imagebuilder-bot <imagebuilder-bots+imagebuilder-bot@redhat.com> - 86-1
+- New upstream release
+
+* Fri Nov 21 2025 imagebuilder-bot <imagebuilder-bots+imagebuilder-bot@redhat.com> - 83-1
+- New upstream release
+
+* Wed Oct 29 2025 imagebuilder-bot <imagebuilder-bots+imagebuilder-bot@redhat.com> - 81-1
+- New upstream release
+
+* Mon Oct 27 2025 imagebuilder-bot <imagebuilder-bots+imagebuilder-bot@redhat.com> - 80-1
+- New upstream release
+
+* Tue Oct 07 2025 imagebuilder-bot <imagebuilder-bots+imagebuilder-bot@redhat.com> - 78-1
+- New upstream release
+
+* Wed Sep 17 2025 imagebuilder-bot <imagebuilder-bots+imagebuilder-bot@redhat.com> - 77-1
+- New upstream release
+
+* Wed Sep 03 2025 imagebuilder-bot <imagebuilder-bots+imagebuilder-bot@redhat.com> - 76-1
+- New upstream release
+
 * Thu Aug 21 2025 imagebuilder-bot <imagebuilder-bots+imagebuilder-bot@redhat.com> - 75-1
 - New upstream release
 
