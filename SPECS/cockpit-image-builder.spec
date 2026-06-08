@@ -1,5 +1,5 @@
 Name:           cockpit-image-builder
-Version:        94
+Version:        94.3
 Release:        1%{?dist}
 Summary:        Image builder plugin for Cockpit
 
@@ -48,6 +48,15 @@ appstream-util validate-relax --nonet %{buildroot}/%{_datadir}/metainfo/*
 %{_datadir}/metainfo/*
 
 %changelog
+* Fri Jun 6 2026 Sanne Raymaekers <sraymaek@redhat.com> - 94.3-1
+- New upstream release
+
+* Fri Jun 6 2026 Sanne Raymaekers <sraymaek@redhat.com> - 94.2-1
+- New upstream release
+
+* Tue Jun 2 2026 Lucas Garfield <lucas@redhat.com> - 94.1-1
+- Resolve CVE-2025-13465 and CVE-2026-4800
+
 * Mon Feb 23 2026 imagebuilder-bot <imagebuilder-bots+imagebuilder-bot@redhat.com> - 94-1
 - New upstream release
 
