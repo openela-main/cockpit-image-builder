@@ -1,5 +1,5 @@
 Name:           cockpit-image-builder
-Version:        94.4
+Version:        110
 Release:        1%{?dist}
 Summary:        Image builder plugin for Cockpit
 
@@ -15,10 +15,13 @@ BuildRequires:  gettext
 BuildRequires:  libappstream-glib
 BuildRequires:  make
 BuildRequires:  /usr/bin/node
+BuildRequires:  npm
+# for _tmpfilesdir macro
+BuildRequires:  systemd-rpm-macros
 
 Requires:       cockpit
 Requires:       cockpit-files
-Requires:       osbuild-composer >= 131
+Requires:       image-builder >= 76.0.0
 
 Recommends:     cockpit-machines
 
@@ -31,12 +34,15 @@ as a frontend for osbuild.
 %setup -q -n %{name}
 
 %build
-# Nothing to build
+NODE_ENV=production npm run build:cockpit
 
 %install
 %make_install PREFIX=/usr
 # drop source maps, they are large and just for debugging
 find %{buildroot}%{_datadir}/cockpit/ -name '*.map' | xargs --no-run-if-empty rm --verbose
+
+install -m 0755 -vd %{buildroot}%{_tmpfilesdir}
+install -m 0644 -vp cockpit/tmpfiles.d/cockpit-image-builder.conf %{buildroot}%{_tmpfilesdir}/cockpit-image-builder.conf
 
 %check
 appstream-util validate-relax --nonet %{buildroot}/%{_datadir}/metainfo/*
@@ -46,19 +52,18 @@ appstream-util validate-relax --nonet %{buildroot}/%{_datadir}/metainfo/*
 %license LICENSE
 %{_datadir}/cockpit/cockpit-image-builder
 %{_datadir}/metainfo/*
+%{_tmpfilesdir}/cockpit-image-builder.conf
+%ghost %attr(0700, root, root) %dir /var/cache/cockpit-image-builder
 
 %changelog
-* Mon Sep 22 2026 Sanne Raymaekers <sraymaek@redhat.com> - 94.4-1
+* Fri Aug 21 2026 imagebuilder-bot <imagebuilder-bots+imagebuilder-bot@redhat.com> - 110-1
 - New upstream release
 
-* Fri Jun 6 2026 Sanne Raymaekers <sraymaek@redhat.com> - 94.3-1
+* Wed Aug 19 2026 imagebuilder-bot <imagebuilder-bots+imagebuilder-bot@redhat.com> - 108-1
 - New upstream release
 
-* Fri Jun 6 2026 Sanne Raymaekers <sraymaek@redhat.com> - 94.2-1
+* Fri Aug 07 2026 imagebuilder-bot <imagebuilder-bots+imagebuilder-bot@redhat.com> - 106-1
 - New upstream release
-
-* Tue Jun 2 2026 Lucas Garfield <lucas@redhat.com> - 94.1-1
-- Resolve CVE-2025-13465 and CVE-2026-4800
 
 * Mon Feb 23 2026 imagebuilder-bot <imagebuilder-bots+imagebuilder-bot@redhat.com> - 94-1
 - New upstream release
