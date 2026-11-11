@@ -1,5 +1,5 @@
 Name:           cockpit-image-builder
-Version:        110
+Version:        110.3
 Release:        1%{?dist}
 Summary:        Image builder plugin for Cockpit
 
@@ -56,6 +56,15 @@ appstream-util validate-relax --nonet %{buildroot}/%{_datadir}/metainfo/*
 %ghost %attr(0700, root, root) %dir /var/cache/cockpit-image-builder
 
 %changelog
+* Mon Oct 26 2026 Anna Vítová <avitova@redhat.com> - 110.3-1
+- New upstream release
+
+* Fri Oct 23 2026 Anna Vítová <avitova@redhat.com> - 110.2-1
+- New upstream release
+
+* Mon Sep 22 2026 Anna Vítová <avitova@redhat.com> - 110.1-1
+- New upstream release
+
 * Fri Aug 21 2026 imagebuilder-bot <imagebuilder-bots+imagebuilder-bot@redhat.com> - 110-1
 - New upstream release
 
